@@ -6,7 +6,7 @@ body h5 {
   height: 65px;
 }
 
-.new-idea {
+#new-idea {
   height: 250px;
   background-color: #e1faea;
   margin-bottom: 25px;

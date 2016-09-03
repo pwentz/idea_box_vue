@@ -1,17 +1,18 @@
 <h5>Ideabox w/ Vue</h5>
+
 <div class='filler'>
 </div>
 <div class='row'>
-  <div class='small-6 small-centered columns new-idea'>
+  <div class='small-6 small-centered columns' id='new-idea'>
     <div class='input-filler'>
     </div>
     <div class='row'>
       <div class='small-8 small-centered columns'>
-        <input type='text' placeholder='Idea name...'>
-        <textarea placeholder='Idea body...'></textarea>
+        <input type='text' placeholder='Idea name...' v-model='newIdeaTitle'>
+        <textarea placeholder='Idea body...' v-model='newIdeaBody'></textarea>
         <div class='row'>
           <div class='small-4 small-centered columns btn-container'>
-            <button type='submit' class='success button'>
+            <button type='submit' class='primary button hollow' v-on:click="newIdea( newIdeaTitle, newIdeaBody )">
               <i class="fi-lightbulb"></i> Create!
             </button>
         </div>
@@ -19,6 +20,7 @@
     </div>
   </div>
 </div>
+
 <div id='ideas'>
   <div class='row' v-for='idea of ideas' id="idea-{{ idea.id }}" track-by="$index">
     <div class='small-4 small-centered columns idea-container'>
