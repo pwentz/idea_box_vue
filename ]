@@ -1,9 +1,0 @@
-%h5 IdeaBox w/ Vue
-
-#ideas
-  %ul{ 'v-for': 'idea in ideas' }
-    %li
-      { idea.title }
-    %ul
-      %li
-        { ideas }

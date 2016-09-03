@@ -7,6 +7,7 @@
 
     %title= content_for?(:title) ? yield(:title) : "Idea Box"
     %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js' }
+    %link{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css" }
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"

@@ -1,0 +1,27 @@
+body h5 {
+  text-align: center;
+}
+
+.input-filler {
+  height: 65px;
+}
+
+.new-idea {
+  height: 250px;
+  background-color: #e1faea;
+  margin-bottom: 25px;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 12px;
+}
+
+.filler {
+  height: 50px;
+}
+
+.idea-info p, .idea-info h5 {
+  text-align: center;
+}
+
+.btn-container, .btn-container button {
+  width: 100%;
+}

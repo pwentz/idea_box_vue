@@ -15,7 +15,7 @@ class Seed
       idea = Idea.create!(
         title: Faker::Company.profession,
         body: Faker::Lorem.sentence,
-        quality: ['genius', 'plausible', 'swill']
+        quality: [0, 1, 2].sample
       )
       puts "Created #{idea.title} idea!"
     end
