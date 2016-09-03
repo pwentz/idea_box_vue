@@ -1,4 +1,6 @@
-<h5>Ideabox w/ Vue</h5>
+<div class='filler'>
+</div>
+<h1 id='header'>Ideabox (with Vue!)</h1>
 
 <div class='filler'>
 </div>
@@ -28,7 +30,13 @@
         <h5><strong>{{ idea.title }}</strong></h5>
         <p>{{ idea.quality }}</p>
         <p>{{ idea.body }}</p>
-        <p>{{ $index }}</p>
+        <div class='row'>
+          <div class='small-3 small-offset-9 columns btn-container'>
+            <button class='button alert hollow' v-on:click='deleteIdea(idea.id)'>
+              <i class='fi-x'></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

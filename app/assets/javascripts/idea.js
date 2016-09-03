@@ -4,6 +4,11 @@ window.onload = () => {
     data: {
       ideas: []
     },
+    methods: {
+      deleteIdea(id) {
+        removeIdea(id)
+      }
+    },
     ready: () => {
       $.ajax({
         url: '/api/v1/ideas.json',
@@ -14,6 +19,22 @@ window.onload = () => {
     }
   })
 
+  function fillIdeas(response) {
+    Idea.ideas = response;
+  }
+
+  function removeIdea(id) {
+    $.ajax({
+      url: `/api/v1/ideas/${id}.json`,
+      type: 'DELETE',
+      success: function() {
+        Idea.ideas = Idea.ideas.filter(( idea ) => {
+          return idea.id !== id
+        });
+      }
+    })
+  }
+
   let IdeaGenerator = new Vue({
     el: '#new-idea',
     data: {
@@ -22,21 +43,21 @@ window.onload = () => {
     },
     methods: {
       newIdea(newTitle, newBody) {
-        $.ajax({
-          url: '/api/v1/ideas.json',
-          type: 'POST',
-          data: { idea: { title: newTitle, body: newBody } },
-          success: (response) => {
-            Idea.ideas.unshift(response)
-            clearInputs();
-          }
-        });
+        generateIdea(newTitle, newBody)
       }
     }
   })
 
-  function fillIdeas(response) {
-    Idea.ideas = response;
+  function generateIdea(title, body) {
+    $.ajax({
+      url: '/api/v1/ideas.json',
+      type: 'POST',
+      data: { idea: { title: title, body: body } },
+      success: (response) => {
+        Idea.ideas.unshift(response)
+        clearInputs();
+      }
+    });
   }
 
   function clearInputs() {
