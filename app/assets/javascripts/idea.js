@@ -5,14 +5,16 @@ window.onload = () => {
       ideas: []
     },
     ready: () => {
-      let that;
-      that = this;
       $.ajax({
         url: '/api/v1/ideas.json',
         success: (response) => {
-          that.ideas = response;
+          fill_ideas(response)
         }
       })
     }
   })
+
+  function fill_ideas(response) {
+    Idea.ideas = response;
+  }
 }
