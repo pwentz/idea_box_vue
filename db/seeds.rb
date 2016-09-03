@@ -13,8 +13,8 @@ class Seed
   def seed_ideas
     5.times do |i|
       idea = Idea.create!(
-        title: Faker::Company.profession,
-        body: Faker::Lorem.sentence,
+        title: Faker::Company.catch_phrase,
+        body: Faker::StarWars.quote,
         quality: [0, 1, 2].sample
       )
       puts "Created #{idea.title} idea!"
