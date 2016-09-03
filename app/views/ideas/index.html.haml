@@ -1,0 +1,17 @@
+%h5 IdeaBox w/ Vue
+
+#ideas
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Quality
+        %th Body
+    %tbody
+      %tr{ 'v-for': 'idea in ideas' }
+        %td
+          {{ idea.title }}
+        %td
+          {{ idea.quality }}
+        %td
+          {{ idea.body }}
