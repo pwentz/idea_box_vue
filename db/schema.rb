@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903004458) do
+ActiveRecord::Schema.define(version: 20160903185938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160903004458) do
   create_table "ideas", force: :cascade do |t|
     t.text    "title"
     t.text    "body"
-    t.integer "quality"
+    t.integer "quality", default: 1
   end
 
 end
