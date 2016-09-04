@@ -2,11 +2,19 @@ window.onload = () => {
   let Idea = new Vue ({
     el: '#ideas',
     data: {
-      ideas: []
+      ideas: [],
+      editable: false
     },
     methods: {
       deleteIdea(id) {
-        removeIdea(id)
+        removeIdea(id);
+      },
+      editIdea(id) {
+        renderInputs();
+      },
+      editable() {
+        let e = { editable: false };
+        return e.editable;
       }
     },
     ready: () => {
@@ -21,6 +29,10 @@ window.onload = () => {
 
   function fillIdeas(response) {
     Idea.ideas = response;
+  }
+
+  function renderInputs() {
+    Idea.editable = !Idea.editable;
   }
 
   function removeIdea(id) {
