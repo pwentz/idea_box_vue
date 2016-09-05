@@ -1,5 +1,5 @@
 const App = Vue.extend({
-  template: 
+  template: `
     <div>
       <input 
         type='text'
@@ -16,7 +16,8 @@ const App = Vue.extend({
         Save!
       </button>
       <ideas :ideas='ideas'></ideas>
-    </div> ,
+    </div> 
+    `,
   data() {
     return {
       newTitle: '',

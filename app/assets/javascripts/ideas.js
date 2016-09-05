@@ -1,22 +1,54 @@
 const Ideas = Vue.extend({
   template: `
-    <div v-for='idea in ideas'>
-      <h1 
-        contentEditable='true'
-        v-on:blur='updateIdea(idea.id)'
-        class='idea-title'
+    <div 
+      v-for='idea in ideas'
+      class='row'
+    >
+      <div
+        class='small-6 \
+               small-centered \ 
+               columns idea-container'
       >
-        {{ idea.title }}
-      </h1>
-      <p 
-        contentEditable='true'
-        v-on:blur='updateIdea(idea.id)'
-        class='idea-body'
-      >
-        {{ idea.body }}
-      </p>
+        <div
+          class='callout \
+                 primary \
+                 idea-info'
+        >
+          <h5
+            contentEditable='true'
+            v-on:blur='updateIdea(idea.id)'
+            class='idea-title'
+          >
+            {{ idea.title }}
+          </h5>
+          <p 
+            contentEditable='true'
+            v-on:blur='updateIdea(idea.id)'
+            class='idea-body'
+          >
+            {{ idea.body }}
+          </p>
+          <div class='row'>
+            <div
+              class='small-3 \
+                     small-offset-9 \
+                     columns \
+                     btn-container'
+            >
+              <button
+                class='button \
+                       alert \
+                       hollow'
+              >
+                <i class='fi-x'></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  `,
+    `
+  ,
   props: ['ideas'],
   methods: {
     updateIdea(id) {
