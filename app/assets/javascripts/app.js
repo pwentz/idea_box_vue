@@ -1,20 +1,46 @@
 const App = Vue.extend({
   template: `
     <div>
-      <input 
-        type='text'
-        v-model='newTitle'
-      >
-      <input
-        type='text'
-        v-model='newBody'
-      >
-      <button
-        v-on:click='handleSubmit'
-        class='success button'
-      >
-        Save!
-      </button>
+      <div class='filler'>
+      </div>
+      <h1 id='header'>
+        Ideabox (with Vue.js!)
+      </h1>
+      <div class='filler'>
+      </div>
+      <div class='row'>
+        <div class='small-8 \
+                    small-centered \
+                    columns'
+        >
+          <input 
+            type='text'
+            v-model='newTitle'
+          >
+          <input
+            type='text'
+            v-model='newBody'
+          >
+          <div class='row'>
+            <div class='small-4 \
+                        small-centered \
+                        columns \
+                        btn-container'
+            >
+              <button
+                v-on:click='handleSubmit'
+                class='button \
+                       success \
+                       hollow'
+              >
+                <i class='fi-lightbulb'></i>
+                save!
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
       <ideas :ideas='ideas'></ideas>
     </div> 
     `,
