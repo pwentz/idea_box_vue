@@ -107,10 +107,12 @@ const App = Vue.extend({
     },
 
     handleClear() {
-      $.getJSON('api/v1/ideas/clear.json')
-        .done(data => {
-          this.fetchIdeas();
-        })
+      if (confirm('clear all ideas?!')) {
+        $.getJSON('api/v1/ideas/clear.json')
+          .done(data => {
+            this.fetchIdeas();
+          })
+      }
     }
   }
 })
