@@ -18,6 +18,10 @@ class Api::V1::IdeasController < ApplicationController
     respond_with :api, :v1, Idea.update(params[:id], idea_params)
   end
 
+  def clear
+    respond_with Idea.destroy_all
+  end
+
   private
 
   def idea_params

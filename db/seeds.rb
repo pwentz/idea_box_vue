@@ -11,9 +11,9 @@ class Seed
   end
 
   def seed_ideas
-    5.times do |i|
+    20.times do |i|
       idea = Idea.create!(
-        title: Faker::Company.catch_phrase,
+        title: Faker::Superhero.name,
         body: Faker::StarWars.quote,
         quality: [0, 1, 2].sample
       )

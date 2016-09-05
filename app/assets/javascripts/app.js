@@ -1,5 +1,5 @@
 const App = Vue.extend({
-  template: `
+  template:` 
     <div>
       <div class='filler'>
       </div>
@@ -31,6 +31,7 @@ const App = Vue.extend({
                 v-model='newBody'
                 placeholder='body...'
               >
+
               <div class='row'>
                 <div class='small-4 \
                             small-centered \
@@ -48,13 +49,31 @@ const App = Vue.extend({
                   </button>
                 </div>
               </div>
+              <div class='row'>
+                <div class='small-4 \
+                            small-centered \
+                            columns
+                            btn-container'
+                >
+                  <button class='button \
+                                 alert'
+                          v-on:click='handleClear'
+                  >
+                    <i class='fi-skull'></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <ideas :ideas='ideas'></ideas>
+      <ideas
+        :ideas='ideas'
+      >
+      </ideas>
     </div> 
     `,
+
   data() {
     return {
       newTitle: '',
@@ -62,25 +81,36 @@ const App = Vue.extend({
       ideas: []
     }
   },
-  init() {
-    $.getJSON('/api/v1/ideas.json')
-      .done(data => {
-        this.ideas = data
-      })
+
+  ready() {
+    this.fetchIdeas()
   },
+
   methods: {
+
+    fetchIdeas() {
+      $.getJSON('api/v1/ideas.json')
+        .done(data => {
+          this.ideas = data
+        })
+    },
+
     handleSubmit() {
       $.ajax({
         url: '/api/v1/ideas.json',
         type: 'POST',
         data: { idea: { title: this.newTitle, body: this.newBody } },
         success: (response) => {
-          $.getJSON('/api/v1/ideas.json')
-          .done(data => {
-            this.ideas = data
-          })
+          this.fetchIdeas();
         }
       })
+    },
+
+    handleClear() {
+      $.getJSON('api/v1/ideas/clear.json')
+        .done(data => {
+          this.fetchIdeas();
+        })
     }
   }
 })
