@@ -9,34 +9,45 @@ const App = Vue.extend({
       <div class='filler'>
       </div>
       <div class='row'>
-        <div class='small-8 \
+        <div class='small-6 \
                     small-centered \
                     columns'
+             id='new-idea'
         >
-          <input 
-            type='text'
-            v-model='newTitle'
-          >
-          <input
-            type='text'
-            v-model='newBody'
-          >
+          <div class='input-filler'>
+          </div>
           <div class='row'>
-            <div class='small-4 \
+            <div class='small-8 \
                         small-centered \
-                        columns \
-                        btn-container'
+                        columns'
             >
-              <button
-                v-on:click='handleSubmit'
-                class='button \
-                       success \
-                       hollow'
+              <input 
+                type='text'
+                v-model='newTitle'
+                placeholder='title...'
               >
-                <i class='fi-lightbulb'></i>
-                save!
-              </button>
-
+              <input
+                type='text'
+                v-model='newBody'
+                placeholder='body...'
+              >
+              <div class='row'>
+                <div class='small-4 \
+                            small-centered \
+                            columns \
+                            btn-container'
+                >
+                  <button
+                    v-on:click='handleSubmit'
+                    class='button \
+                           success \
+                           hollow'
+                  >
+                    <i class='fi-lightbulb'></i>
+                    save!
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
