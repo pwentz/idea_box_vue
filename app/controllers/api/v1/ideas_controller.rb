@@ -2,7 +2,7 @@ class Api::V1::IdeasController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Idea.all.reverse
+    respond_with Idea.order('id DESC')
   end
 
   def create
@@ -12,6 +12,10 @@ class Api::V1::IdeasController < ApplicationController
 
   def destroy
     respond_with :api, :v1, Idea.destroy(params[:id])
+  end
+
+  def update
+    respond_with :api, :v1, Idea.update(params[:id], idea_params)
   end
 
   private

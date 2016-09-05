@@ -20,10 +20,14 @@ body h5 {
 
 #new-idea {
   height: 250px;
-  background-color: #e1faea;
+  background-color: #def0fc;
   margin-bottom: 25px;
   border: 1px solid rgba(10, 10, 10, 0.25);
   border-radius: 12px;
+}
+
+#new-idea input {
+  font-family: 'Oxygen', sans-serif;
 }
 
 .filler {
@@ -32,8 +36,10 @@ body h5 {
 
 .idea-info p, .idea-info h5 {
   text-align: center;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .btn-container, .btn-container button {
   width: 100%;
+  font-family: 'Oxygen', sans-serif;
 }
