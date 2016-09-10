@@ -1,6 +1,6 @@
 const Ideas = Vue.extend({
-  template: ` 
-    <div 
+  template: `
+    <div
       v-for='idea in ideas'
       class='row'
     >
@@ -21,7 +21,7 @@ const Ideas = Vue.extend({
           >
             {{ idea.title }}
           </h5>
-          <p 
+          <p
             contentEditable='true'
             v-on:blur='updateIdea(idea.id)'
             class='idea-body'
@@ -72,7 +72,7 @@ const Ideas = Vue.extend({
         url: `/api/v1/ideas/${id}`,
         data: { idea: { title: updatedIdea } },
         type: 'PUT',
-        success: response => { 
+        success: response => {
           this.fetchIdeas()
         }
       })
@@ -83,7 +83,7 @@ const Ideas = Vue.extend({
         url: `/api/v1/ideas/${id}`,
         data: { idea: { body: updatedIdea } },
         type: 'PUT',
-        success: response => { 
+        success: response => {
           this.fetchIdeas();
         }
       })
