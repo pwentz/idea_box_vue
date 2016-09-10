@@ -1,5 +1,5 @@
 const App = Vue.extend({
-  template:` 
+  template:`
     <div>
       <div class='filler'>
       </div>
@@ -21,7 +21,7 @@ const App = Vue.extend({
                         small-centered \
                         columns'
             >
-              <input 
+              <input
                 type='text'
                 v-model='newTitle'
                 placeholder='title...'
@@ -71,7 +71,7 @@ const App = Vue.extend({
         :ideas='ideas'
       >
       </ideas>
-    </div> 
+    </div>
     `,
 
   data() {
@@ -102,8 +102,14 @@ const App = Vue.extend({
         data: { idea: { title: this.newTitle, body: this.newBody } },
         success: (response) => {
           this.fetchIdeas();
+          this.newTitle = ''
+          this.newBody = ''
         }
       })
+    },
+
+    clearInputs() {
+
     },
 
     handleClear() {
