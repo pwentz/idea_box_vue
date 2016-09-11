@@ -2,7 +2,7 @@ class Api::V1::IdeasController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Idea.order('id DESC')
+    respond_with ideas: Idea.order('id DESC'), session: session['user_id']
   end
 
   def create
@@ -11,7 +11,7 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def destroy
-    respond_with :api, :v1, Idea.destroy(params[:id])
+    respond_with Idea.destroy(params[:id])
   end
 
   def update

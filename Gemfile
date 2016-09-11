@@ -24,6 +24,7 @@ gem 'haml-rails'
 gem 'foundation-rails'
 gem 'vuejs-rails'
 gem 'responders'
+gem 'rack-cors'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
