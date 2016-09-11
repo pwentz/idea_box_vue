@@ -6,8 +6,8 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-    idea = Idea.create(idea_params)
-    respond_with :api, :v1, idea
+    idea = Idea.new(idea_params)
+    idea.save if idea.valid?
   end
 
   def destroy

@@ -22,7 +22,6 @@ gem 'faker'
 gem 'pry-rails'
 gem 'haml-rails'
 gem 'foundation-rails'
-gem 'vuejs-rails'
 gem 'responders'
 gem 'rack-cors'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
